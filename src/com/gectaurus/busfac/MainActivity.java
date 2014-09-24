@@ -1,9 +1,13 @@
 package com.gectaurus.busfac;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 
 public class MainActivity extends Activity {
@@ -12,6 +16,34 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        final Button fac = (Button) findViewById(R.id.button2);
+        final Button alu = (Button) findViewById(R.id.button1);
+        
+        OnClickListener ocl = new OnClickListener(){
+        	@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+        		Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+        		
+        		
+        		
+        		if(arg0.equals(fac)){
+        			intent.putExtra("title", "Destino: Facultad");
+        			intent.putExtra("image", "");
+        		}
+        		else{
+        			intent.putExtra("title", "Destino: Aluche");
+        			intent.putExtra("image", "");
+        		}
+        		
+        		MainActivity.this.startActivity(intent);
+			}
+		};                
+                       
+        fac.setOnClickListener(ocl);		        
+        alu.setOnClickListener(ocl);
+        
     }
 
 
