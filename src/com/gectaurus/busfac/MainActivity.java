@@ -24,18 +24,16 @@ public class MainActivity extends Activity {
         	@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-        		Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-        		
-        		
+        		Intent intent = new Intent(MainActivity.this, SecondActivity.class);        		
         		
         		if(arg0.equals(fac)){
         			intent.putExtra("title", "Destino: Facultad");
-        			intent.putExtra("image", "");
+        			intent.putExtra("image", "desfac.png");
         		}
         		else{
         			intent.putExtra("title", "Destino: Aluche");
-        			intent.putExtra("image", "");
-        		}
+        			intent.putExtra("image", "desalu.png");
+          		}
         		
         		MainActivity.this.startActivity(intent);
 			}

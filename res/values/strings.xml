@@ -8,5 +8,6 @@
     <string name="Facultad">Facultad</string>
     <string name="Aluche">Aluche</string>
     <string name="title_activity_second">SecondActivity</string>
+    <string name="ImageDescr">Image loaded from the activity depending on the destination</string>
 
 </resources>

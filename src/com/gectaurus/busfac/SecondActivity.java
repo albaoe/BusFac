@@ -1,9 +1,14 @@
 package com.gectaurus.busfac;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 public class SecondActivity extends Activity {
 
@@ -11,6 +16,20 @@ public class SecondActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_second);
+		
+		ImageView image = (ImageView) findViewById(R.id.imageView1);
+		Bundle b = getIntent().getExtras();
+		this.setTitle(b.getString("title"));
+		
+		InputStream input;
+		try {
+			input = getAssets().open(b.getString("image"));
+			Drawable draw = Drawable.createFromStream(input, null);
+			image.setImageDrawable(draw);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}				
 	}
 
 	@Override
